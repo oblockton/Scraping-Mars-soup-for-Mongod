@@ -1,18 +1,18 @@
-# Mission to Mars
+﻿# Mission to Mars
 
 ![mission_to_mars](Images/mission_to_mars.jpg)
 
-In this assignment, you will build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. The following outlines what you need to do.
+This web application scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. 
 
 ## Step 1 - Scraping
 
-Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
+Build Aresenal -Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
 
-* Create a Jupyter Notebook file called `mission_to_mars.ipynb` and use this to complete all of your scraping and analysis tasks. The following outlines what you need to scrape.
+* A Jupyter Notebook file called `mission_to_mars.ipynb` will be used to complete all of the scraping and analysis tasks. 
 
 ### NASA Mars News
 
-* Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. Assign the text to variables that you can reference later.
+* Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text.
 
 ```python
 # Example:
@@ -55,7 +55,7 @@ mars_weather = 'Sol 1801 (Aug 30, 2017), Sunny, high -21C/-5F, low -80C/-112F, p
 
 * Visit the USGS Astrogeology site [here](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars) to obtain high resolution images for each of Mar's hemispheres.
 
-* You will need to click each of the links to the hemispheres in order to find the image url to the full resolution image.
+* Navigate through the links to the hemispheres in order to find the image url to the full resolution image.
 
 * Save both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. Use a Python dictionary to store the data using the keys `img_url` and `title`.
 
@@ -77,39 +77,18 @@ hemisphere_image_urls = [
 
 Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
 
-* Start by converting your Jupyter notebook into a Python script called `scrape_mars.py` with a function called `scrape` that will execute all of your scraping code from above and return one Python dictionary containing all of the scraped data.
+* Starting with converting the Jupyter notebook into a Python script with a `scrape` function that will execute all of the scraping code from above and return one Python dictionary containing all of the scraped data.
 
-* Next, create a route called `/scrape` that will import your `scrape_mars.py` script and call your `scrape` function.
+* Next, create a route that will import your Python script and call the `scrape` function.
 
   * Store the return value in Mongo as a Python dictionary.
 
 * Create a root route `/` that will query your Mongo database and pass the mars data into an HTML template to display the data.
 
-* Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. Use the following as a guide for what the final product should look like, but feel free to create your own design.
+* Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. 
 
 ![final_app_part1.png](Images/final_app_part1.png)
 ![final_app_part2.png](Images/final_app_part2.png)
 
 - - -
 
-## Step 3 - Submission
-
-To submit your work to BootCampSpot, create a new GitHub repository and upload the following:
-
-1. The Jupyter Notebook containing the scraping code used.
-
-2. Screenshots of your final application.
-
-3. Submit the link to your new repository to BootCampSpot.
-
-## Hints
-
-* Use Splinter to navigate the sites when needed and BeautifulSoup to help find and parse out the necessary data.
-
-* Use Pymongo for CRUD applications for your database. For this homework, you can simply overwrite the existing document each time the `/scrape` url is visited and new data is obtained.
-
-* Use Bootstrap to structure your HTML template.
-
-## Copyright
-
-© 2019 Trilogy Education Services. All Rights Reserved.
