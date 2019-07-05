@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 import mars_scrape
 
 app = Flask(__name__)
-app.config['MONGO_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
+app.config['MONGO_DATABASE_URI'] = os.environ.get('MONGODB_URI', '')
 mongo = PyMongo(app)
 
 
