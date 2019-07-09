@@ -5,11 +5,24 @@ from bs4 import BeautifulSoup as bs
 import requests
 import pymongo
 from splinter import Browser
+import os
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 ## new deploy
+# 
+# options = Options()
+#
+# options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
+#
+# options.add_argument('--headless')
+# options.add_argument('--disable-gpu')
+# options.add_argument('--no-sandbox')
+# browser = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
+executable_path = {'executable_path':'GOOGLE_CHROME_BIN '}
 
 def scrape_mars():
     url = 'https://mars.nasa.gov/news/'
-    browser = Browser('chrome', headless=True) # <<<<<<----- Set headless=False to have browser pop-up
+    browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     browser.visit(url)
     html = browser.html
     # Create BeautifulSoup object; parse with 'lxml'
@@ -23,7 +36,7 @@ def scrape_mars():
 
     # Set initial url to JPL mars topic content.
     url2 ="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
-    browser = Browser('chrome', headless=True)
+    browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     # Visit landing page
     browser.visit(url2)
     # Save HTML to variable
@@ -37,7 +50,7 @@ def scrape_mars():
     jpl_link_format = str( jpl_base + (jpl.find_all('footer')[0].a.get('data-link')))
 
     #Visit the next page i.e the page where we find the full size image.
-    browser = Browser('chrome', headless=True)
+    browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     browser.visit(jpl_link_format)
     # Save the html to var
     jpl_target = browser.html
@@ -50,7 +63,7 @@ def scrape_mars():
 
 
     mars_twit="https://twitter.com/marswxreport?lang=en"
-    browser = Browser('chrome', headless=True)
+    browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     #Visit the page
     browser.visit(mars_twit)
     # Save browsed page to var
@@ -80,7 +93,7 @@ def scrape_mars():
 
     image_site_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     image_site_base = 'https://astrogeology.usgs.gov'
-    browser = Browser('chrome', headless=True)
+    browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     #Visit the page
     browser.visit(image_site_url)
     # Save browsed page to var
