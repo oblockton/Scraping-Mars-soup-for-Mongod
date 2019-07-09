@@ -24,14 +24,14 @@ def scrape_mars():
     url = 'https://mars.nasa.gov/news/'
 
     ########
-     '''for splinter traversal'''
+    '''for splinter traversal'''
     ########
     # # browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     # browser.visit(url)
     # html = browser.html
 
     ##################
-     '''selenium traversal'''
+    '''selenium traversal'''
     ##################
     browser.get(url)
     html = browser.find_element_by_tag_name("body").get_attribute('innerHTML')
@@ -49,7 +49,7 @@ def scrape_mars():
     url2 ="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
 
     #############
-     '''Splinter traversal'''
+    '''Splinter traversal'''
     #############
     # browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     # # Visit landing page
@@ -81,7 +81,7 @@ def scrape_mars():
     # jpl_target = browser.html
 
     ###########################
-     '''Selenium traversal'''
+    '''Selenium traversal'''
     ###########################
     browser.get(jpl_link_format)
     jpl_target = browser.find_element_by_tag_name('body').get_attribute('innerHTML')
@@ -96,8 +96,8 @@ def scrape_mars():
 
     mars_twit="https://twitter.com/marswxreport?lang=en"
     ####################
-     '''Splinter traversal'''
-     ######################
+    '''Splinter traversal'''
+    ######################
     # browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     # #Visit the page
     # browser.visit(mars_twit)
@@ -105,7 +105,7 @@ def scrape_mars():
     # mars_browse = browser.html
 
     ###################
-     '''Selenium traversal'''
+    '''Selenium traversal'''
     ##################
     browser.get(mars_twit)
     mars_browse = browser.find_element_by_tag_name('body').get_attribute('innerHTML')
@@ -137,8 +137,8 @@ def scrape_mars():
     image_site_base = 'https://astrogeology.usgs.gov'
 
     ####################
-     '''Splinter traversal'''
-     ######################
+    '''Splinter traversal'''
+    ######################
     # browser = Browser('chrome',**executable_path, headless=True) # <<<<<<----- Set headless=False to have browser pop-up
     # #Visit the page
     # browser.visit(image_site_url)
@@ -146,7 +146,7 @@ def scrape_mars():
     # mars_img_browse = browser.html
 
     ###################
-     '''Selenium traversal'''
+    '''Selenium traversal'''
     ##################
     browser.get(image_site_url)
     mars_img_browse = browser.find_element_by_tag_name('body').get_attribute('innerHTML')
@@ -168,8 +168,8 @@ def scrape_mars():
     for target in mars_hemi_targets:
 
         ####################
-         '''Splinter traversal'''
-         ######################
+        '''Splinter traversal'''
+        ######################
         # browser = Browser('chrome', headless=True)
         # #Visit the page
         # browser.visit(target)
@@ -177,7 +177,7 @@ def scrape_mars():
         # target_obj = browser.html
 
         ###################
-         '''Selenium traversal'''
+        '''Selenium traversal'''
         ##################
         browser.get(target)
         target_obj = browser.find_element_by_tag_name('body').get_attribute('innerHTML')
