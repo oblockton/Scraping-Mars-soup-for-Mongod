@@ -193,7 +193,7 @@ def scrape_mars():
 
 
 
-    content_data = {'news_title':news_title, 'news_content':news_content,
+    content_data = {#'news_title':news_title, 'news_content':news_content,
                    'featured_img_url':featured_img_url,'mars_tweet':mars_tweet,
                    'hemisphere_data':hemi_title_url, 'facts_tab_html': mars_facts_html}
 
