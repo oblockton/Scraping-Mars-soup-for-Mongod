@@ -18,7 +18,7 @@ options.add_argument('--headless')
 options.add_argument('--disable-gpu')
 options.add_argument('--no-sandbox')
 browser = webdriver.Chrome(executable_path=str(os.environ.get('CHROMEDRIVER_PATH')), chrome_options=options)
-executable_path = {'executable_path':'GOOGLE_CHROME_BIN '}
+# executable_path = {'executable_path':'GOOGLE_CHROME_BIN '}
 
 def scrape_mars():
     url = 'https://mars.nasa.gov/news/'
